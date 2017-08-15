@@ -79,16 +79,16 @@ export function handleColorOverrides(playerId, skin = {}) {
     // These will use standard style names for CSS since they are added directly to a style sheet
     // Using background instead of background-color so we don't have to clear gradients with background-image
 
-    if (_.length(skin.controlbar)) {
+    if (_.size(skin.controlbar)) {
         styleControlbar(skin.controlbar);
     }
-    if (_.length(skin.timeslider)) {
+    if (_.size(skin.timeslider)) {
         styleTimeslider(skin.timeslider);
     }
-    if (_.length(skin.menus)) {
+    if (_.size(skin.menus)) {
         styleMenus(skin.menus);
     }
-    if (_.length(skin.tooltips)) {
+    if (_.size(skin.tooltips)) {
         styleTooltips(skin.tooltips);
     }
 
