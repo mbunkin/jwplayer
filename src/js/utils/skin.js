@@ -118,7 +118,8 @@ export function handleColorOverrides(playerId, skin = {}) {
         // Chromecast overrides
         // Can't use addStyle since it will camel case the style name
         css('.jw-icon-cast button.jw-off', `{--disconnected-color: ${config.icons}}`, playerId);
-        css('.jw-icon-cast button.jw-off', `{--disconnected-color: ${config.icons}}`, playerId);
+        css('.jw-icon-cast:hover button.jw-off', `{--disconnected-color: ${config.iconsActive}}`, playerId);
+        css('.jw-icon-cast button.jw-off:focus', `{--disconnected-color: ${config.iconsActive}}`, playerId);
 
         css('.jw-icon-cast button', `{--connected-color: ${config.iconsActive}}`, playerId);
         css('.jw-icon-cast button:focus', `{--connected-color: ${config.iconsActive}}`, playerId);
