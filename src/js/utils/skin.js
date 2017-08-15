@@ -115,26 +115,14 @@ export function handleColorOverrides(playerId, skin = {}) {
             '.jw-button-color.jw-toggle.jw-off:hover'
         ], 'color', config.iconsActive);
 
-        // chromecast overrides
-        addStyle([
-            '.jw-icon-cast button',
-            '.jw-icon-cast button:hover',
-        ], '--disconnected-color', config.icons);
+        // Chromecast overrides
+        // Can't use addStyle since it will camel case the style name
+        css('.jw-icon-cast button.jw-off', `{--disconnected-color: ${config.icons}}`, playerId);
+        css('.jw-icon-cast button.jw-off', `{--disconnected-color: ${config.icons}}`, playerId);
 
-        addStyle([
-            '.jw-icon-cast button',
-            '.jw-icon-cast button:focus',
-        ], '--connected-color', config.iconsActive);
-
-        addStyle([
-            '.jw-icon-cast button:focus',
-            '.jw-icon-cast button:hover',
-        ], '--disconnected-color', config.iconsActive);
-
-
-        addStyle([
-            '.jw-icon-cast button.jw-off',
-        ], '--connected-color', config.icons);
+        css('.jw-icon-cast button', `{--connected-color: ${config.iconsActive}}`, playerId);
+        css('.jw-icon-cast button:focus', `{--connected-color: ${config.iconsActive}}`, playerId);
+        css('.jw-icon-cast:hover button', `{--connected-color: ${config.iconsActive}}`, playerId);
 
         addStyle([
             '.jw-background-color.jw-controlbar'
@@ -193,9 +181,16 @@ export function handleColorOverrides(playerId, skin = {}) {
     }
 
     function styleTooltips(config) {
+
         addStyle([
+            '.jw-skip.jw-background-color',
             '.jw-tooltip-time .jw-time-tip'
         ], 'background', config.background);
+
+        addStyle([
+            '.jw-skip .jw-text',
+            '.jw-time-tip .jw-text'
+        ], 'color', config.text);
     }
 
     // Set global colors, used by related plugin
